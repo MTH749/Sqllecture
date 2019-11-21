@@ -97,9 +97,9 @@ WHERE mgr NOT IN (7698, 7839)
 OR mgr is NULL;
 
 DESC emp;
-
+-
 --where 7
 SELECT *
 FROM emp
-WHERE job = 'SALESMAN'
-AND hiredate > TO_DATE ('19810601','YYYYMMDD');
+WHERE job LIKE 'SALESMAN'
+AND hiredate >= TO_DATE ('19810601','YYYYMMDD');
