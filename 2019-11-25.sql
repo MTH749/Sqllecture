@@ -128,7 +128,7 @@ SELECT TO_CHAR (SYSDATE, 'YYYY') YYYY, -- 현재 년도
        TO_CHAR (SYSDATE, 'D') D, -- 현재 요일 (1~7)
        TO_CHAR (SYSDATE, 'IW') IW,  -- 현재 일자의 주차 ( 1~ 53)  
        --- 2019년 12월 31일은 몇주차가 나오는가?
-       TO_CHAR (TO_DATE('20191231', 'YYYYMMDD','IW') IW       
+       TO_CHAR (TODATE('20191231', 'YYYYMMDD' ,'IW') IW       
 FROM dual;
 
 --fun2
@@ -139,22 +139,15 @@ SELECT TO_CHAR (SYSDATE, 'YYYY-MM-DD') DT_DASH,
 FROM dual;
 
 --DATE 타입의 ROUND, TRUNC 적용
-SELECT TO_CHAR(SYSDATE, 'YYYY-MM-DD hh24-mi-ss') now,
-        --mm에서 반올림
-       TO_CHAR(ROUND (SYSDATE,'YYYY'), 'YYYY-MM-DD hh24-mi-ss') now_YYYY,
-        --DD에서 반올림(25일 -> 1개월)
-       TO_CHAR(ROUND (SYSDATE,'MM'), 'YYYY-MM-DD hh24-mi-ss') now_MM,      
-       --시간에서 반올림
-       TO_CHAR(ROUND (SYSDATE,'DD'), 'YYYY-MM-DD hh24-mi-ss') now_DD 
-FROM dual;  
+SELECT TO_CHAR(SYSDATE, 'YYYY-DD-MM hh24-mi-ss') now,
+       TO_CHAR(ROUND (SYSDATE,'YYYY'), 'YYYY-DD-MM hh24-mi-ss') now-YYYY,
+       TO_CHAR(ROUND (SYSDATE,'MM'), 'YYYY-DD-MM hh24-mi-ss') now-MM,      
+       TO_CHAR(ROUND (SYSDATE,'DD'), 'YYYY-DD-MM hh24-mi-ss') now-DD 
 
-SELECT TO_CHAR(SYSDATE, 'YYYY-MM-DD hh24-mi-ss') now,
-        --mm에서 절삭
-       TRUNC (SYSDATE,'YYYY'), 'YYYY-DD-MM hh24-mi-ss') now-YYYY,
-        --dd에서 절삭
-       TRUNC (SYSDATE,'MM'), 'YYYY-DD-MM hh24-mi-ss') now_MM,      
-        --시간에서 절삭
-       TRUNC (SYSDATE,'DD'), 'YYYY-DD-MM hh24-mi-ss') now_DD 
+       TO_CHAR(SYSDATE, 'YYYY-DD-MM hh24-mi-ss') now,
+       TO_CHAR(TRUNC (SYSDATE,'YYYY'), 'YYYY-DD-MM hh24-mi-ss') now-YYYY,
+       TO_CHAR(TRUNC (SYSDATE,'MM'), 'YYYY-DD-MM hh24-mi-ss') now-MM,      
+       TO_CHAR(TRUNC (SYSDATE,'DD'), 'YYYY-DD-MM hh24-mi-ss') now-DD 
  
 FROM dual;
 
@@ -165,15 +158,16 @@ FROM dual;
 --LAST_DAY (date) : date가 속한 월의 마지막 날짜
 
 --MONTH_BETWEEN(date1, date2)
-SELECT MONTHS_BETWEEN (TO_DATE('2019-11-25', 'YYYY-MM-DD'),
-                      TO_DATE('2019-03-31', 'YYYY-MM-DD')) M_bet,
-                      TO_DATE('2019-11-25', 'YYYY-MM-DD') -   TO_DATE('2019-03-31', 'YYYY-MM-DD') d_m
+SELECT MONTHS_BETWEEN (TO_DATE('2019-11-25', 'YYYT-MM-DD'),
+                      TO_DATE('2019-03-31', 'YYYT-MM-DD')) M_bet,
+                      TO_DATE('2019-11-25', 'YYYT-MM-DD') -
+                      TO_DATE('2019-03-31', 'YYYT-MM-DD') d_m
                       
 FROM dual;                   
 
 --ADD_MONTH(date, number (+ -) )
-SELECT ADD_MONTHS(TO_DATE('20191125', 'YYYYMMDD'), 5) NOW_AFTER5M,
-       ADD_MONTHS(TO_DATE('20191125', 'YYYYMMDD'), - 5) NOW_BEFORE5,
+SELECT ADD_MONTHS(TODATE('20191125', 'YYYYMMDD'), 5) NOW_AFTER5M,
+       ADD_MONTHS(TODATE('20191125', 'YYYYMMDD'), - 5) NOW_BEFORE5,
        SYSDATE + 100 --100일 뒤의 날짜 (월개념 3 -31, 2-28/29
 FROM dual;
 
