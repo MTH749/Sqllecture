@@ -21,7 +21,8 @@ WHERE deptno IN (10,20); -- emp 테이블의 직원의 소속 부서가 10번 이거나 20번인
 
 SELECT *
 FROM emp
-WHERE deptno = 10 OR detpno = 20;
+WHERE deptno = 10
+OR deptno = 20;
 
 SELECT *
 FROM users;
@@ -97,9 +98,29 @@ WHERE mgr NOT IN (7698, 7839)
 OR mgr is NULL;
 
 DESC emp;
--
+-   
 --where 7
 SELECT *
 FROM emp
 WHERE job LIKE 'SALESMAN'
 AND hiredate >= TO_DATE ('19810601','YYYYMMDD');
+
+--where 8
+SELECT *
+FROM emp
+WHERE DEPTNO != 10
+AND hiredate >= TO_DATE ('19810601','YYYYMMDD');
+
+
+
+SELECT *
+FROM 
+    (SELECT ROWNUM RN, a.*
+    FROM
+    (SELECT empno, ename
+     FROM emp
+     ORDER BY ename) a)
+WHERE RN BETWEEN 11 AND 14;
+
+SELECT ROWNUM
+FROM emp;

@@ -24,7 +24,7 @@ FROM USER_TABLES;
 SELECT *
 FROM USER_TAB_COLUMNS;
 
---DESC 테이블명
+--DESC 테이블 유형
 DESC prod;
 
 
