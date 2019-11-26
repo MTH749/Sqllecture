@@ -204,11 +204,31 @@ SELECT empno, ename, job, sal,
 FROM emp;       
 
 --DECODE
+
 SELECT empno, ename, job, sal,
         DECODE( job, 'SALESMAN',  sal *1.05,
                      'MANAGER',   sal *1.10,
                      'PRESIDENT', sal * 1.20) bonus
  FROM emp;
  
+ --con1 
+ SELECT EMPNO, ENAME,
+        CASE 
+            WHEN DEPTNO = '10' THEN 'ACCOUNTING'
+            WHEN DEPTNO = '20' THEN 'RESEARCH'
+            WHEN DEPTNO = '30' THEN 'ASALES'
+            WHEN DEPTNO = '40' THEN 'OPERATIONS'
+            ELSE 'DDIT'
+        END DNAME    
+ 
+ FROM emp;
+ 
+ -- con2
+SELECT EMPNO, ENAME, TO_CHAR(hiredate, 'rr/mm/dd') HIREDATE,
+        CASE 
+            WHEN MOD (TO_NUMBER(TO_CHAR(HIREDATE, 'YY')),2) = 1 THEN '건강검진 대상자'
+            ELSE  '건강검진 비대상자'
+            END  CONTACT_TO_DOCTOR
+FROM emp;
  
  
