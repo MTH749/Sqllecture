@@ -31,6 +31,7 @@ SELECT TO_CHAR(SYSDATE ,'YYYY-MM-DD') TODAY,
        TO_DATE(TO_CHAR(SYSDATE, 'YYYY-MM-DD'), 'YYYY/MM/DD')
 FROM dual;
 
+
 --YYYY-MM-DD HH24:MI:SS 문자열로 변경
 SELECT TO_CHAR(SYSDATE ,'YYYY-MM-DD') TODAY,
        TO_DATE(TO_CHAR(SYSDATE, 'YYYY-MM-DD'), 'YYYY/MM/DD') SECOND,
@@ -216,19 +217,48 @@ SELECT empno, ename, job, sal,
         CASE 
             WHEN DEPTNO = '10' THEN 'ACCOUNTING'
             WHEN DEPTNO = '20' THEN 'RESEARCH'
-            WHEN DEPTNO = '30' THEN 'ASALES'
+            WHEN DEPTNO = '30' THEN 'SALES'
             WHEN DEPTNO = '40' THEN 'OPERATIONS'
             ELSE 'DDIT'
-        END DNAME    
- 
+        END DNAME,    
+        
+        DECODE (deptno, '10', 'ACCOUNTING',
+                        '20', 'RESEARCH',
+                        '30', 'SALES',
+                        '40', 'OPERATION') DNAME
+                            
+        
  FROM emp;
  
  -- con2
+ 
+ --건강검진 대상자 조회
+ --> 올해년도구분 (0 : 짝수년, 1 : 홀수년) TO_CHAR시 
 SELECT EMPNO, ENAME, TO_CHAR(hiredate, 'rr/mm/dd') HIREDATE,
         CASE 
             WHEN MOD (TO_NUMBER(TO_CHAR(HIREDATE, 'YY')),2) = 1 THEN '건강검진 대상자'
             ELSE  '건강검진 비대상자'
             END  CONTACT_TO_DOCTOR
 FROM emp;
- 
- 
+
+--con3 내년도 건강 검진 대상자를 조회하는 쿼리를 작성해보세요 
+ --> 올해년도구분 (0 : 짝수년, 1 : 홀수년) TO_CHAR시 
+SELECT empno, ename, hiredate, 
+        CASE 
+            WHEN MOD (TO_CHAR(hiredate, 'YYYY' ),2) =
+                 MOD (TO_CHAR(sysdate, 'YYYY' )+1 ,2) 
+            THEN '건강검진 대상자'
+            ELSE  '건강검진 비대상자'     
+            END  CONTACT_TO_DOCTOR
+            
+FROM emp; 
+
+
+SELECT USERID, USERNM, ALIAS, TO_CHAR(REG_DT, 'YYYY') yyyy,
+       CASE
+        WHEN MOD (TO_CHAR(REG_DT, 'YYYY' ),2) =
+            MOD (TO_CHAR(sysdate, 'YYYY' ),2) 
+            THEN '건강검진 대상자'
+            ELSE  '건강검진 비대상자'     
+            END  CONTACT_TO_DOCTOR
+FROM users;
