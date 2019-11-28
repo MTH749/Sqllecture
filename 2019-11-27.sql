@@ -191,14 +191,11 @@ UPDATE emp SET dname = CASE
  
  SELECT empno, ename, deptno, dname
  FROM emp;
- d
+ 
  -- SALES -- > MARKET SALES
  -- 총 6건의 데이터 변경이 필요하다
  --값의 중복이 있는 형태(반 정규형)
 -- UPDATE emp set dname = 'MARKET SALES'
 -- WHERE dname = 'SALES';
 
---emp 테이블, dept 테입르 조인
-SELECT ename, emp.deptno, dept.dname
-FROM emp, dept
-WHERE emp.deptno = dept.deptno;
+
