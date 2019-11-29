@@ -219,3 +219,4 @@ and emp.empno >7600
 AND emp.sal > 2500
 AND dept.dname = 'RESEARCH'
 ORDER BY emp.ename;
+
