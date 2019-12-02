@@ -137,12 +137,25 @@ ORDER BY a.buy_date;
 
 --outer 4
 
+SELECT p.PID, p.PNM ,nvl(c.CID,1) cid, nvl(c.DAY, 0) day,count( c.CNT) CNT
+FROM cycle c, product p
+WHERE c.PID(+) = p.PID
+AND c.cid (+)= '1' 
+GROUP BY p.PID, p.PNM ,c.CID, c.DAY
+ORDER BY PID;
+
+--outer 5
+SELECT p.PID, p.PNM ,nvl(c.CID,1) cid, nvl(t.cnm, 'brown') cnm, nvl(c.DAY, 0) day,count( c.CNT) CNT
+FROM cycle c, product p,customer t
+WHERE c.PID(+) = p.PID
+AND c.cid = t.cid(+)
+AND c.cid (+)= '1' 
+GROUP BY p.PID, p.PNM ,c.CID, c.DAY, t.cnm
+ORDER BY PID desc;
+
 
 SELECT *
-FROM buyprod;
+FROM customer;
 
 SELECT *
-FROM prod;
-
-
-ORDER BY PROD_INSDATE;
+FROM product;
