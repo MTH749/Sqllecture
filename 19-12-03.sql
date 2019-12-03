@@ -75,13 +75,14 @@ GROUP BY GB;
 --2 / 서울 특별시 / 강남구 / 7.2
 
 --해당 시도, 시군구별 프렌차이즈별 건수가 표현
+
 SELECT ROWNUM rn, sido,sigungu, 도시발전지수
 FROM
 (SELECT a.sido, a.sigungu, ROUND( a.cnt/b.cnt,1 )as 도시발전지수
 FROM 
     (SELECT sido, sigungu, COUNT(*) cnt
     FROM fastfood
-    WHERE gb in ('버거킹','KFC', '맥도날드')
+    WHERE gb in ('버거킹','KFC','맥도날드')
     GROUP BY sido,sigungu) a,
     
     (SELECT sido, sigungu, COUNT(*) cnt
@@ -90,9 +91,37 @@ FROM
     GROUP BY sido,sigungu) b
 
 WHERE a.sido = b.sido
-AND a.sigungu = b.sigungu)
-ORDER BY 도시발전지수 DESC;
+AND a.sigungu = b.sigungu
+ORDER BY 도시발전지수 DESC) 
+ORDER BY rn;
 
+
+SELECT count(city.sido) sido ,city.sigungu,city.도시발전지수, tax.id, tax.sigungu,tax.people,tax.sal 
+FROM
+(SELECT a.sido, a.sigungu, ROUND( a.cnt/b.cnt,1 )as 도시발전지수
+FROM 
+    (SELECT sido, sigungu, COUNT(*) cnt
+    FROM fastfood
+    WHERE gb in ('버거킹','KFC','맥도날드')
+    GROUP BY sido,sigungu) a,
+    
+    (SELECT sido, sigungu, COUNT(*) cnt
+    FROM fastfood
+    WHERE gb in '롯데리아'
+    GROUP BY sido,sigungu) b
+
+WHERE a.sido = b.sido
+AND a.sigungu = b.sigungu) city,
+
+
+
+(SELECT id,sido,sigungu,people,sal
+FROM tax
+ORDER BY sal) tax
+
+WHERE city.sigungu = tax.sigungu
+AND city.sido = tax.sido
+GROUP BY city.sigungu,city.도시발전지수, tax.id, tax.sigungu,tax.people,tax.sal; 
 
 SELECT *
 FROM TAX
