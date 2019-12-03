@@ -210,6 +210,7 @@ WHERE e. sal >2500
 AND e.empno >7600
 AND d.dname = 'RESEARCH'
 AND e.DEPTNO = d.DEPTNO
+
 ORDER BY e.ename;
 
 --ANSI
