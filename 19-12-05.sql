@@ -203,3 +203,8 @@ UNION ALL
 
 SELECT 9997,'james' ,'CLERK',NULL, TO_DATE ('20191202','YYYYMMDD'), 500, NULL, NULL
 FROM dual;
+
+select *
+from emp;
+
+rollback;
