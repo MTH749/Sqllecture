@@ -385,8 +385,8 @@ ALTER TABLE emp_test DROP CONSTRAINT pk_emp_test;
 --테이블의 컬럼 순서를 변경하는 것은 불가능 하다
 --empno, ename, job --> empno job, ename
 
-ALTER TABEL emp ORDER BY EMPNO asc;
+ALTER TABLE emp ORDER BY EMPNO asc;
 
 SELECT *
-FROM emp
-ORDER BY empno asc;
+FROM emp;
+
