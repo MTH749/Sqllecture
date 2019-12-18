@@ -115,21 +115,3 @@ SELECT TO_CHAR(dt,'mm')mm,sum(sales)
 FROM sales
 GROUP BY TO_CHAR(dt,'mm');
 
-SELECT dept_h.*, LEVEL
-FROM dept_h
-START WITH deptcd = 'dept0' --시작점은 deptcd = 'dept0' --> XX회사(최상위 조직)
-CONNECT BY PRIOR deptcd = p_deptcd -- PRIOR = 이미 읽은 데이터
-
-;
-
-/*
-    dept0 xx회사
-        dept0_00 디자인부
-             dept0_00_0 디자인팀
-        dept0_01 정보기획부
-             dept0_01_0 기획팀
-                dept0_00_0_0 기획파트
-        dept0_02 정보시스템부
-                deptdept0_02_0  개발 1팀
-                deptdept0_02_1  개발 2팀
-                */
