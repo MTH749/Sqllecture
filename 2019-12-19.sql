@@ -98,67 +98,38 @@ SELECT empno, ename, hiredate,sal,job,
        LAG(sal) OVER(PARTITION BY job ORDER BY sal desc,hiredate) lag_sal
 FROM emp;
 --no_ana3
-SELECT empno,ename,sal
+SELECT c.empno, c.ename, c.sal, sum(d.sal)
 FROM 
-  (SELECT empno, ename, sal, ROWNUM j_rn
+  (SELECT a.*, ROWNUM rn
     FROM
         (SELECT empno, ename, sal
          FROM emp
-         ORDER BY empno, sal DESC) a,
-
-        (SELECT empno,sum(sal) c_sum
+         ORDER BY sal ) a) c,
+ (SELECT b.*, ROWNUM rn
+    FROM
+        (SELECT empno, ename, sal
          FROM emp
-         GROUP BY empno) a
+         ORDER BY sal) b) d  
          
-         WHERE b.cum >= a.rn
-         ORDER BY b.empno, a.rn ) b;
-         
-         
-         
-SELECT a.empno, a.ename, a.sal, sum(rn)
-FROM 
-(SELECT empno, ename, sal, ROWNUM j_rn
-    FROM
-    (SELECT empno, ename, sal
-     FROM emp
-     ORDER BY empno, sal DESC)) a,
+         WHERE c.rn >= d.rn
+         GROUP BY c.empno, c.ename, c.sal
+         ORDER BY c.sal;
 
-(SELECT rn, ROWNUM j_rn
+SELECT c.empno, c.ename, c.sal, sum(d.sal)
 FROM
-    (SELECT b.*, a.rn
-    FROM 
-    (SELECT ROWNUM rn
-     FROM dual
-     CONNECT BY level <= (SELECT sum(sal) FROM emp)) a,
-    
-    (SELECT empno, sum(sal) c_sum
-     FROM emp
-     GROUP BY empno) b
-    WHERE b.c_sum >= a.rn
-    ORDER BY b.empno, a.rn )) b
-WHERE a.j_rn >= b.j_rn
-GROUP BY a.empno, a.ename, a.sal
-ORDER BY sal;
-
-    SELECT a.empno,a.ename,a.sal, sum(b.sal)
-    FROM
-    (SELECT empno,ename, sal
-    FROM emp)a,
-    
-    ((SELECT a.empno,a.sal
-    FROM
-    (SELECT empno,sal
+(SELECT  a.*, rownum rn
+FROM
+    (SELECT empno, ename, sal, hiredate
     FROM emp
-    ORDER BY sal) a,
+    ORDER BY sal, hiredate)a)c,
 
-    (SELECT empno,sal
+(SELECT  b.*, rownum rn
+FROM
+    (SELECT empno, ename, sal
     FROM emp
-    ORDER BY sal) b
-    WHERE a.sal <= b.sal))b
-    
-    WHERE a.sal = b.sal
-    GROUP BY a.empno,a.ename,a.sal;
-
-    SELECT ROWNUM rn
-     FROM dual
-     CONNECT BY level <= (SELECT count(*) FROM emp); 
+    ORDER BY sal, hiredate) b)d
+WHERE c.rn >= d.rn
+GROUP BY c.empno, c.ename, c.sal, c.hiredate
+ORDER BY c.sal, c.hiredate;         
+         
+         
