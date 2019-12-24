@@ -28,6 +28,8 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
+<part id="2"/>
+<part id="3"/>
 </presentation>
 </folder>
 </info>
@@ -35,8 +37,14 @@
 <editor id="com.tomato.exerd.editor.DiagramEditor" name="hr.exerd" partName="hr.exerd" path="D:/A_TeachingMaterial/2.Oracle/work/modeling/model/hr.exerd" title="hr.exerd" tooltip="model/hr.exerd" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/model/hr.exerd"/>
 </editor>
-<editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="hotelMedeling.exerd" partName="hotelMedeling.exerd" path="D:/A_TeachingMaterial/2.Oracle/work/modeling/model/hotelMedeling.exerd" title="hotelMedeling.exerd" tooltip="model/hotelMedeling.exerd" workbook="DefaultEditorWorkbook">
+<editor id="com.tomato.exerd.editor.DiagramEditor" name="hotelMedeling.exerd" partName="hotelMedeling.exerd" path="D:/A_TeachingMaterial/2.Oracle/work/modeling/model/hotelMedeling.exerd" title="hotelMedeling.exerd" tooltip="model/hotelMedeling.exerd" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/model/hotelMedeling.exerd"/>
+</editor>
+<editor id="com.tomato.exerd.editor.DiagramEditor" name="hotelModeling2.exerd" partName="hotelModeling2.exerd" path="D:/A_TeachingMaterial/2.Oracle/work/modeling/model/hotelModeling2.exerd" title="hotelModeling2.exerd" tooltip="model/hotelModeling2.exerd" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/model/hotelModeling2.exerd"/>
+</editor>
+<editor activePart="true" focus="true" id="com.tomato.exerd.editor.DiagramEditor" name="select.exerd" partName="select.exerd" path="D:/A_TeachingMaterial/2.Oracle/work/modeling/model/select.exerd" title="select.exerd" tooltip="model/select.exerd" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/model/select.exerd"/>
 </editor>
 </editors>
 <views>
@@ -49,7 +57,7 @@
 <element path="/model"/>
 </expanded>
 <selection>
-<element path="/model/hotelMedeling.exerd"/>
+<element path="/model/hotelModeling2.exerd"/>
 </selection>
 </viewState>
 </view>
@@ -57,16 +65,12 @@
 <viewState/>
 </view>
 <view id="com.tomato.exerd.validate.ui.ValidateView" partName="검토"/>
-<view id="com.tomato.exerd.modelview3.ModelView3" partName="모델">
-<viewState/>
-</view>
 <view id="org.eclipse.ui.console.ConsoleView" partName="콘솔">
 <viewState/>
 </view>
 <view id="com.tomato.exerd.ui.views.domain" partName="도메인">
 <viewState/>
 </view>
-<view id="org.eclipse.ui.views.ContentOutline" partName="아웃라인"/>
 <view id="org.eclipse.gef.ui.palette_view" partName="Palette">
 <viewState/>
 </view>
@@ -99,8 +103,6 @@
 <new_wizard_action id="com.tomato.exerd.xscript.ui.wizard.NewXScriptWizard"/>
 <view id="org.eclipse.ui.views.ResourceNavigator"/>
 <view id="org.eclipse.gef.ui.palette_view"/>
-<view id="com.tomato.exerd.modelview3.ModelView3"/>
-<view id="org.eclipse.ui.views.ContentOutline"/>
 <fastViewBars>
 <fastViewBar fastViewLocation="1024" id="bottomFolder" orientation="256" selectedTabId="org.eclipse.ui.console.ConsoleView" style="0">
 <fastViews>
@@ -132,7 +134,7 @@
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.07176532" ratioLeft="137" ratioRight="1772" relationship="2" relative="leftFolder"/>
+<info part="org.eclipse.ui.editorss" ratio="0.12486716" ratioLeft="235" ratioRight="1647" relationship="2" relative="leftFolder"/>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@a4d397" ratio="0.8738797" ratioLeft="1365" ratioRight="197" relationship="2" relative="org.eclipse.ui.editorss">
 <folder appearance="2" expanded="2">
 <page content="com.tomato.exerd.ui.views.thumbnail" label="LabelNotFound"/>
@@ -140,13 +142,10 @@
 </folder>
 </info>
 <info folder="true" part="rightFolder" ratio="0.24946466" ratioLeft="233" ratioRight="701" relationship="4" relative="org.eclipse.ui.internal.ViewStack@a4d397">
-<folder activePageID="com.tomato.exerd.modelview3.ModelView3" appearance="2" expanded="2">
-<page content="com.tomato.exerd.modelview3.ModelView3" label="모델"/>
-<page content="org.eclipse.ui.views.ContentOutline" label="아웃라인"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-<part id="1"/>
-</presentation>
+<folder appearance="2" expanded="2">
+<page content="com.tomato.exerd.modelview3.ModelView3" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 <info folder="true" part="bottomFolder" ratio="0.69914347" ratioLeft="653" ratioRight="281" relationship="4" relative="org.eclipse.ui.editorss">
@@ -173,25 +172,59 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/model/hr.exerd"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/model/subject1.sql"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/model/sub.exerd"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/model/hotelMedeling.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/model/hotelModeling2.exerd"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" path="/model/select.exerd"/>
 </editors>
-<item historyLabel="hr.exerd" index="0"/>
-<item historyLabel="subject1.sql" index="1"/>
-<item historyLabel="hr.exerd" index="0"/>
-<item historyLabel="sub.exerd" index="2"/>
-<item historyLabel="subject1.sql" index="1">
-<position/>
-</item>
-<item historyLabel="sub.exerd" index="2"/>
-<item historyLabel="hr.exerd" index="0"/>
-<item historyLabel="sub.exerd" index="2"/>
-<item historyLabel="hr.exerd" index="0"/>
-<item historyLabel="sub.exerd" index="2"/>
-<item historyLabel="hr.exerd" index="0"/>
-<item active="true" historyLabel="hotelMedeling.exerd" index="3"/>
+<item historyLabel="hotelModeling2.exerd" index="0"/>
+<item historyLabel="select.exerd" index="1"/>
+<item historyLabel="hotelModeling2.exerd" index="0"/>
+<item historyLabel="select.exerd" index="1"/>
+<item historyLabel="hotelModeling2.exerd" index="0"/>
+<item historyLabel="select.exerd" index="1"/>
+<item historyLabel="hotelModeling2.exerd" index="0"/>
+<item historyLabel="select.exerd" index="1"/>
+<item historyLabel="hotelModeling2.exerd" index="0"/>
+<item historyLabel="select.exerd" index="1"/>
+<item historyLabel="hotelModeling2.exerd" index="0"/>
+<item historyLabel="select.exerd" index="1"/>
+<item historyLabel="hotelModeling2.exerd" index="0"/>
+<item historyLabel="select.exerd" index="1"/>
+<item historyLabel="hotelModeling2.exerd" index="0"/>
+<item historyLabel="select.exerd" index="1"/>
+<item historyLabel="hotelModeling2.exerd" index="0"/>
+<item historyLabel="select.exerd" index="1"/>
+<item historyLabel="hotelModeling2.exerd" index="0"/>
+<item historyLabel="select.exerd" index="1"/>
+<item historyLabel="hotelModeling2.exerd" index="0"/>
+<item historyLabel="select.exerd" index="1"/>
+<item historyLabel="hotelModeling2.exerd" index="0"/>
+<item historyLabel="select.exerd" index="1"/>
+<item historyLabel="hotelModeling2.exerd" index="0"/>
+<item historyLabel="select.exerd" index="1"/>
+<item historyLabel="hotelModeling2.exerd" index="0"/>
+<item historyLabel="select.exerd" index="1"/>
+<item historyLabel="hotelModeling2.exerd" index="0"/>
+<item historyLabel="select.exerd" index="1"/>
+<item historyLabel="hotelModeling2.exerd" index="0"/>
+<item historyLabel="select.exerd" index="1"/>
+<item historyLabel="hotelModeling2.exerd" index="0"/>
+<item historyLabel="select.exerd" index="1"/>
+<item historyLabel="hotelModeling2.exerd" index="0"/>
+<item historyLabel="select.exerd" index="1"/>
+<item historyLabel="hotelModeling2.exerd" index="0"/>
+<item historyLabel="select.exerd" index="1"/>
+<item historyLabel="hotelModeling2.exerd" index="0"/>
+<item historyLabel="select.exerd" index="1"/>
+<item historyLabel="hotelModeling2.exerd" index="0"/>
+<item historyLabel="select.exerd" index="1"/>
+<item historyLabel="hotelModeling2.exerd" index="0"/>
+<item historyLabel="select.exerd" index="1"/>
+<item historyLabel="hotelModeling2.exerd" index="0"/>
+<item historyLabel="select.exerd" index="1"/>
+<item historyLabel="hotelModeling2.exerd" index="0"/>
+<item historyLabel="select.exerd" index="1"/>
+<item historyLabel="hotelModeling2.exerd" index="0"/>
+<item active="true" historyLabel="select.exerd" index="1"/>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
@@ -213,6 +246,12 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="select.exerd" tooltip="model/select.exerd">
+<persistable path="/model/select.exerd"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="hotelModeling2.exerd" tooltip="model/hotelModeling2.exerd">
+<persistable path="/model/hotelModeling2.exerd"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.tomato.exerd.editor.DiagramEditor" name="hotelMedeling.exerd" tooltip="model/hotelMedeling.exerd">
 <persistable path="/model/hotelMedeling.exerd"/>
 </file>
