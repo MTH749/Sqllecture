@@ -216,7 +216,10 @@ BEGIN
 END;
 /
 
+<<<<<<< HEAD
 --부서테이블의 모든 행의 부서이름, 위치, 지역 정보를 출력 (cursor)를 이용
+=======
+>>>>>>> master
 DECLARE
     --커서 선언
     CURSOR dept_cursor IS

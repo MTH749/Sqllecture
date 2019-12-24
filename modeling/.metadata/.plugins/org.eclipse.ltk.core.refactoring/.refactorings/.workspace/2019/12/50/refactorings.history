@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="&apos;model/subject1.sql&apos; 자원을 삭제합니다." deleteContents="false" description="&apos;model/subject1.sql&apos; 자원을 삭제합니다." element1="/model/subject1.sql" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1576149799365"/>
-</session>
