@@ -143,4 +143,4 @@ FROM CYCLE,
        TO_CHAR (TO_DATE(:v_yyyymm, 'yyyymm')+ (LEVEL -1) , 'D') day 
       FROM dual
       CONNECT BY LEVEL <= TO_CHAR(LAST_DAY(TO_DATE(:v_yyyymm, 'yyyymm')),'DD')) cal
-WHERE cycle.day = cal.day;      
+WHERE cycle.day = cal.day;
